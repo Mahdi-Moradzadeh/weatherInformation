@@ -1,3 +1,77 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    margin: 0px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+body{
+    margin-top: 0px;
+    height: 200vh;
+}
+
 h1{
-    justify-content: center;
+    padding: 20px 0;
+    margin: 0 auto;
+    width:fit-content;
+    font-size: 2.5rem;
+    color: white;
+}
+
+header{
+    background-image: linear-gradient(to right, rgb(116, 123, 255) , rgb(25, 20, 71));
+}
+
+.container{
+    display: flex;
+    width: 100%;
+
+}
+.topicHeading,
+h2{
+    margin-top: 20px;
+}
+
+.citySearchArea{
+    flex: 1;
+    padding: 0 10px;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* width: 25vw; */
+}
+
+.cityNav{
+}
+.weatherInfo{
+    flex: 2;
+    margin-left: 25px;
+}
+
+
+.topicHeading{
+    font-size: 2.5rem;
+
+}
+
+#searchBox{
+    font-family: 'Times New Roman', Times, serif;
+    height: 4rem;
+}
+
+#searchBtn{
+    color: white;
+    background-color: rgb(116, 123, 255);
+    margin-top: 0.5rem;
+    height: 3rem;
+}
+
+#searchBox,
+#searchBtn{
+    width:100%;
+    text-align: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.15rem 0.15rem 0;
 }
