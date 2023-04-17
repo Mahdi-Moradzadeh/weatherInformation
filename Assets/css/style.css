@@ -49,13 +49,19 @@ h2{
     flex: 2;
     margin-left: 25px;
 }
+.citySearchArea,
+.weatherInfo{
+    border: 2px;
+    border-left: double;
+    border-width: 2.5px;
+    padding: 5px;
+}
 
-
-.topicHeading{
+.topicHeading,
+#pastSearchTitle{
     font-size: 2.5rem;
 
 }
-
 #searchBox{
     font-family: 'Times New Roman', Times, serif;
     height: 4rem;
@@ -74,4 +80,32 @@ h2{
     text-align: center;
     border-radius: 0.5rem;
     box-shadow: 0 0.15rem 0.15rem 0;
+}
+
+#pastSearchDiv{
+    display: flex;
+    margin-top: 10px;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    padding: 2rem;
+}
+
+.flexDivider{
+    flex: 1;
+}
+
+.flexDivider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#clearBtn{
+
+}
+#lastSearch{
+    color: white;
+    font-size: 2.5rem;
+    margin-left: 5px;
+    padding: 0.5px;
+    background-color: black;
 }

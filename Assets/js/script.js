@@ -1,9 +1,69 @@
+//text inputs
 const cityName = document.getElementById("searchBox");
-const searchEl = document.getElementById("searchBtn");
 const cityInfoName = document.getElementById("cityNameSearched");
+//elements
+const searchEl = document.getElementById("searchBtn");
+const lastSearchEl = document.getElementById("lastSearch");
+//btn assignment
+const clearLocalBtn = document.getElementById("clearBtn");
+const reloadBtn = document.getElementById("reloadBtn");
+//other variables
+let correctName;
 
-searchEl.addEventListener("click", function(event){
+searchEl.addEventListener("click", nameCorrection); 
+cityName.addEventListener("keydown", function(event){
+    if (event.key == "Enter")
+        nameCorrection(event);
+}); 
+
+function prevDefaultPropagation (event){
+    event.stopPropagation();
     event.preventDefault();
-    cityInfoName.textContent = "The weather News of " + cityName.value + ":";
+}
 
+
+// Search Engine
+function nameCorrection(event){
+    prevDefaultPropagation(event);
+    
+    // saving the past searches in an array
+    
+
+    // checking and correction inpuut case sensitivity
+    if (cityName.value === '')
+        cityInfoName.textContent = "City Information will be displayed here: ";
+    else{
+        correctName = cityName.value.split('');
+        correctName[0] = correctName[0].toUpperCase();
+        for (let i = 1; i < correctName.length; i++){
+            if (correctName[i] !== ' ' && correctName[i] !== '-')
+            correctName[i] = correctName[i].toLowerCase();
+            else{
+                i++;
+                if(i >= correctName.length)
+                    break;
+                correctName[i] = correctName[i].toUpperCase();
+            }
+        }
+        correctName = correctName.join('');
+        cityInfoName.innerHTML = "The weather News of " + correctName + ":";
+
+        if (localStorage.getItem("savedLocation"))
+            lastSearchEl.innerHTML += `${localStorage.getItem("savedLocation")}<br>`;
+        localStorage.setItem("savedLocation", correctName);
+        
+    }
+    cityName.value = '';
+}
+
+//Clear Local Storage
+clearLocalBtn.addEventListener("click", function(event){
+    prevDefaultPropagation(event);
+    localStorage.clear();
+    lastSearchEl.innerHTML = '';
+});
+//reload button
+reloadBtn.addEventListener("click", function(event){
+    prevDefaultPropagation(event);
+    location.reload();
 });

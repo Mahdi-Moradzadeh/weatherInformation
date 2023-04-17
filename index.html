@@ -18,12 +18,23 @@
         <span class="citySearchArea">
             <span class="cityNav">
                 <h2>Search for a City:</h2>
-                <input type="text" placeholder="Search for City..." id="searchBox">
-                <br>
-                <div>
-                    <button id="searchBtn">Search</button>
+                <input type="search" placeholder="Search for City..." id="searchBox">
+                <button id="searchBtn">Search</button>
+                <div id="pastSearchDiv">
+                    <span class="flexDivider">
+                        <p id="pastSearchTitle">Last Search:</p>
+                    </span>
+                    <span class="flexDivider">
+                        <button id="clearBtn">Clear Search</button>
+                        <button id="reloadBtn">Page Reload</button>
+                    </span>
+                    <br>
+                </div>
+                <div class="flexDivider">
+                    <p id="lastSearch"></p>
                 </div>
             </span>
+            
         </span>
         <span class="weatherInfo">
             <p id="cityNameSearched" class="topicHeading">City Information will be displayed here: </p>
