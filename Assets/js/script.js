@@ -10,10 +10,10 @@ const reloadBtn = document.getElementById("reloadBtn");
 //other variables
 let correctName;
 
-searchEl.addEventListener("click", nameCorrection); 
+searchEl.addEventListener("click", handleSearch); 
 cityName.addEventListener("keydown", function(event){
     if (event.key == "Enter")
-        nameCorrection(event);
+        handleSearch(event);
 }); 
 
 function prevDefaultPropagation (event){
@@ -21,12 +21,24 @@ function prevDefaultPropagation (event){
     event.preventDefault();
 }
 
+function handleSearch (event){
+    let cityNameInput = nameCorrection(event);
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityNameInput}&appid=75fe93327ad0502e94906f107fb25d7c`)
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(response){
+        updateCityUI(response);
+    })
+}
+//this is where to use the keys and values
+function updateCityUI (data){
+    console.log(data);
+}
 
 // Search Engine
 function nameCorrection(event){
     prevDefaultPropagation(event);
-    
-    // saving the past searches in an array
     
 
     // checking and correction inpuut case sensitivity
@@ -54,6 +66,7 @@ function nameCorrection(event){
         
     }
     cityName.value = '';
+    return correctName;
 }
 
 //Clear Local Storage
