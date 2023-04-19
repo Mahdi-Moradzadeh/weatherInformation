@@ -125,3 +125,8 @@ h2{
 .daySeparator{
     flex: 1;
 }
+
+.normalText{
+    font-size: 1.25rem;
+    font-weight: bold;
+}

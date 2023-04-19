@@ -36,6 +36,7 @@ function handleSearch (event){
 function updateCityUI (data){
     console.log(data);
     console.log(data.list[0].dt_txt);
+    weatherDisplay.innerHTML = '';
     for(let i = 0; i <= 4; i++)
     elementCreater(data, i);
 
@@ -86,18 +87,21 @@ reloadBtn.addEventListener("click", function(event){
 });
 
 function elementCreater (data, dayCounter){
+
     //creating the containers and structure of one day schedule
     const weatherContainerEl = document.createElement("div");
     const dayContainerEl = document.createElement("span");
     const dateInfoEl = document.createElement("div");
     const weatherIMG = document.createElement("img");
     const tempDayEl = document.createElement("div");
+    const lineBreak = "****";
 
     // setting attributes of the elements
     weatherIMG.setAttribute("src", `http://openweathermap.org/img/w/${data.list[dayCounter].weather[0].icon}.png`);
     dateInfoEl.setAttribute("class", "mediumTitle");
     weatherContainerEl.setAttribute("class", "daySeparator");
     weatherDisplay.setAttribute("class", "weatherContainer");
+    tempDayEl.setAttribute("class", "normalText");
     
 
     //appending Children
@@ -106,10 +110,15 @@ function elementCreater (data, dayCounter){
     weatherContainerEl.appendChild(dateInfoEl);
     weatherContainerEl.appendChild(weatherIMG);
     weatherContainerEl.appendChild(tempDayEl);
+    // dayContainerEl.appendChild(lineBreak);
 
     //writing in the elements
     
     dateInfoEl.innerHTML = data.list[dayCounter].dt_txt;
+    tempDayEl.innerHTML = `Temperature of  ${data.list[dayCounter].main.temp}  F  ${lineBreak}  Feels like of   
+        ${data.list[dayCounter].main.feels_like}   F  ${lineBreak}  Humidty:   ${data.list[dayCounter].main.humidity}%  
+        ${lineBreak}  Highest Temperature:   ${data.list[dayCounter].main.temp_max}   F  ${lineBreak}  Lowest Temperature:   
+        ${data.list[dayCounter].main.temp_min}   F  ${lineBreak}`;
 
 
 
