@@ -109,3 +109,19 @@ h2{
     padding: 0.5px;
     background-color: black;
 }
+
+.mediumTitle{
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.weatherContainer{
+    display: flex;
+}
+
+.daySeparator{
+    flex: 1;
+}
