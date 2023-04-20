@@ -14,7 +14,7 @@ body{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;  
+    background-size: cover;
 }
 
 h1{
@@ -32,7 +32,6 @@ header{
 .container{
     display: flex;
     width: 100%;
-
 }
 .topicHeading,
 h2{
@@ -48,8 +47,6 @@ h2{
     /* width: 25vw; */
 }
 
-.cityNav{
-}
 .weatherInfo{
     flex: 2;
     margin-left: 25px;
@@ -104,9 +101,7 @@ h2{
     justify-content: center;
     align-items: center;
 }
-#clearBtn{
 
-}
 #lastSearch{
     color: white;
     font-size: 2.5rem;
