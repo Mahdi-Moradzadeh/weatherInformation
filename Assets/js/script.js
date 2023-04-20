@@ -94,7 +94,7 @@ function elementCreater (data, dayCounter){
     const dateInfoEl = document.createElement("div");
     const weatherIMG = document.createElement("img");
     const tempDayEl = document.createElement("div");
-    const lineBreak = "****";
+    const lineBreak = `<br>`;
 
     // setting attributes of the elements
     weatherIMG.setAttribute("src", `http://openweathermap.org/img/w/${data.list[dayCounter].weather[0].icon}.png`);
